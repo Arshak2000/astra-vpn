@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090914">
+  <meta name="description" content="ASTRA VPN — a clearer, more private way to explore the internet.">
+  <title>ASTRA VPN — Your space online</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090914;--panel:#111126;--muted:#a5a5c2;--text:#f7f6ff;--purple:#9b7bff;--blue:#54c7ff;--line:rgba(255,255,255,.1)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 80% 5%,rgba(103,72,210,.2),transparent 34%),radial-gradient(ellipse at 12% 45%,rgba(40,112,190,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:.16em;font-size:17px}
+    .mark{width:35px;height:35px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(140deg,#a78bfa,#4f9fff);box-shadow:0 0 28px #8565ff55}
+    .mark svg{width:22px;height:22px}
+    nav{display:flex;align-items:center;gap:30px;color:#c5c2dd;font-size:14px}
+    nav a:hover{color:white}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;border:0;border-radius:13px;padding:13px 19px;font-weight:750;font-size:14px;cursor:pointer;transition:transform .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+    .primary{background:linear-gradient(110deg,#9b7bff,#5a9dff);color:white;box-shadow:0 9px 32px #7457e944}
+    .ghost{border:1px solid var(--line);background:#ffffff08;color:white}
+    .hero{padding:100px 0 82px;display:grid;grid-template-columns:1.08fr .92fr;gap:45px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#c9baff;background:#9b7bff18;border:1px solid #9b7bff44;padding:8px 12px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:#8fffd0;box-shadow:0 0 12px #8fffd0}
+    h1{font-size:clamp(44px,6.5vw,76px);line-height:1.02;letter-spacing:-.055em;margin:23px 0 20px}
+    .gradient{background:linear-gradient(100deg,#c4aaff 10%,#7ccfff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{max-width:550px;color:var(--muted);font-size:17px;line-height:1.75;margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .fine{font-size:12px;color:#777792;margin-top:18px}
+    .visual{position:relative;min-height:390px;display:grid;place-items:center}
+    .orbit{width:min(350px,80vw);aspect-ratio:1;border:1px solid #9b7bff38;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 90px #7655d51c,inset 0 0 70px #7655d51c}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #6cbfff30;border-radius:50%;inset:10%;transform:rotate(-32deg) scaleY(.42)}
+    .orbit:after{inset:-5%;transform:rotate(35deg) scaleY(.4);border-color:#a78bfa30}
+    .planet{width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at 32% 27%,#e0d2ff,#9474ff 32%,#4b47a8 65%,#171735 100%);box-shadow:0 0 65px #9b7bff88, inset -18px -20px 35px #08081b;position:relative}
+    .planet:after{content:"";position:absolute;inset:22px -28px;border:8px solid #b5a1ff9c;border-left-color:#6cceff80;border-right-color:#e1d8ffb0;border-radius:50%;transform:rotate(-24deg);filter:drop-shadow(0 0 9px #8a7bff)}
+    .float{position:absolute;background:#15152d;border:1px solid var(--line);padding:12px 15px;border-radius:14px;color:#e9e7ff;font-size:12px;box-shadow:0 14px 40px #0005}
+    .float strong{display:block;font-size:14px;margin-bottom:3px}
+    .f1{top:16%;right:0}.f2{bottom:15%;left:0}
+    .section{padding:66px 0}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 35px}
+    .section-head h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.04em;margin:0 0 12px}
+    .section-head p{color:var(--muted);line-height:1.7;margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(145deg,#17172fdd,#101020dd);border:1px solid var(--line);border-radius:20px;padding:25px}
+    .icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#9b7bff1c;color:#c9b8ff;font-size:21px;margin-bottom:20px}
+    .card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+    .cta{margin:55px 0 75px;padding:42px;border-radius:25px;text-align:center;background:linear-gradient(120deg,#6c50c533,#398fd433);border:1px solid #9b7bff44}
+    .cta h2{font-size:clamp(26px,4vw,38px);margin:0 0 12px}.cta p{color:#c2bfd9;margin:0 0 23px}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#777792;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .modal{position:fixed;inset:0;background:#05050ddd;display:none;place-items:center;padding:20px;z-index:5}
+    .modal.open{display:grid}.dialog{max-width:430px;width:100%;background:#15152d;border:1px solid #ffffff22;border-radius:22px;padding:27px;box-shadow:0 25px 90px #0009}
+    .dialog h3{margin:0 0 10px;font-size:22px}.dialog p{color:var(--muted);line-height:1.65;font-size:14px}.close{float:right;background:#ffffff12;border:0;color:white;border-radius:9px;padding:7px 10px;cursor:pointer}
+    @media(max-width:760px){header{height:70px}nav{display:none}.hero{grid-template-columns:1fr;padding:70px 0 45px;gap:10px}.visual{min-height:320px}.cards{grid-template-columns:1fr}.cta{padding:30px 20px;margin:35px 0 55px}.lead{font-size:16px}.f1{right:-2%}.f2{left:-2%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="ASTRA VPN home"><span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 20 20 12 16.5 4 20 12 3Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="m12 3 0 13.5" stroke="white" stroke-width="1.5"/></svg></span>ASTRA VPN</a>
+      <nav><a href="#features">Features</a><a href="#about">About</a><a href="#start">Get started</a></nav>
+      <button class="btn ghost" data-modal>Sign in</button>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Your space. Your privacy.</div>
+          <h1>Explore beyond<br><span class="gradient">the limits.</span></h1>
+          <p class="lead">A calmer, more private way to explore the internet. Meet ASTRA VPN — designed for a connected world.</p>
+          <div class="actions"><button class="btn primary" data-modal>Get started <span aria-hidden="true">↗</span></button><a class="btn ghost" href="#features">Discover ASTRA</a></div>
+          <p class="fine">The website is being built. VPN connections are not available yet.</p>
+        </div>
+        <div class="visual" aria-label="Abstract glowing purple planet illustration">
+          <div class="orbit"><div class="planet"></div></div>
+          <div class="float f1"><strong>ASTRA network</strong>Built for your journey</div>
+          <div class="float f2"><strong>Privacy first</strong>Your online space</div>
+        </div>
+      </section>
+      <section class="section" id="features">
+        <div class="section-head"><h2>A better way to connect</h2><p>Thoughtful tools and a simple experience, with privacy at the center of the design.</p></div>
+        <div class="cards">
+          <article class="card"><div class="icon">◈</div><h3>Privacy focused</h3><p>Designed around keeping your online activity more private. Service details will be published before launch.</p></article>
+          <article class="card"><div class="icon">⌁</div><h3>Simple experience</h3><p>A clean interface that will make managing your account and devices straightforward.</p></article>
+          <article class="card"><div class="icon">◎</div><h3>Made for your devices</h3><p>A responsive website experience for phones, tablets, laptops and desktop screens.</p></article>
+        </div>
+      </section>
+      <section class="cta" id="start"><h2>Your next online destination.</h2><p>ASTRA VPN is taking shape. Follow the project as we build the service.</p><button class="btn primary" data-modal>Join the journey <span aria-hidden="true">↗</span></button></section>
+    </main>
+    <footer id="about"><span>© <span id="year"></span> ASTRA VPN. All rights reserved.</span><span>Privacy-minded by design · Service in development</span></footer>
+  </div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+    <div class="dialog"><button class="close" id="close" aria-label="Close">✕</button><h3 id="dialog-title">ASTRA is in development</h3><p>Account registration and VPN connections are not active yet. We are building the secure backend and VPN infrastructure before opening access.</p><button class="btn primary" id="ok">Got it</button></div>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const modal = document.getElementById('modal');
+    document.querySelectorAll('[data-modal]').forEach(button => button.addEventListener('click', () => modal.classList.add('open')));
+    function closeModal(){modal.classList.remove('open')}
+    document.getElementById('close').addEventListener('click', closeModal);
+    document.getElementById('ok').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if(event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if(event.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
